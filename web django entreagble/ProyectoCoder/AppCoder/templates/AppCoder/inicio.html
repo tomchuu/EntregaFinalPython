@@ -1,0 +1,42 @@
+{% extends "AppCoder/padre.html" %}
+
+
+
+{% load static %}
+
+
+{% block titulo %}
+
+Bienvenidos a mi Gimnasio.
+<h1>{{mensaje}}</h1>
+
+
+{% endblock %}
+
+
+{% block descripcion %}
+
+<form action="/AppCoder/buscar" method="GET">
+
+<input type="text" name="rutinas" id="rutinas">
+
+<input type="submit" value="Buscar">
+
+
+</form>
+
+<p>Estas buscando la rutina : {{busqueda}}</p>
+
+{% for rutina in rutinas %}
+
+    <ul>
+
+        <li>Rutinas: {{rutinas.nombre}}</li>
+        <li>Dias: {{rutina.dias}}</li>
+
+
+    </ul>
+
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "AppCoder/padre.html" %}
+
+
+
+{% load static %}
+
+
+{% block titulo %}
+
+
+Aqui se muestran las rutinas.
+
+
+{% endblock %}
+
+{% block descripcion %}
+
+{% for rutina in rutins %}
+
+<ul>
+
+    <li>Nombre: {{rutina.nombre}} - Dias: {{rutina.dias}}</li>
+    <button>
+        <a href="{% url 'EliminarRutinas' rutina.nombre %}">Borrar.</a>
+    </button>
+
+    <button>
+        <a href="{% url 'EditarRutinas' rutina.nombre %}">Editar.</a>
+    </button>
+
+</ul>
+
+{% endfor %}
+
+<a href="{% url 'AgregarRutinas' %}">Agregar Rutina.</a>
+
+{% endblock %}

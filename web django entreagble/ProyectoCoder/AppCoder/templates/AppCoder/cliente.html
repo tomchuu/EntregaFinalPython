@@ -1,0 +1,35 @@
+{% extends "AppCoder/padre.html" %}
+
+
+
+{% load static %}
+
+
+{% block titulo %}
+
+
+Lista de clientes.
+
+
+
+{% endblock %}
+
+
+{% block descripcion %}
+
+{% for cliente in clients %}
+
+<ul>
+
+    <li>Nombre: {{cliente.nombre}} - Apellido: {{cliente.apellido}} - Fecha de ingreso: {{cliente.fechadeingreso}}</li>
+    <button>
+        <a href="{% url 'EliminarClientes' cliente.nombre %}">Borrar.</a>
+    </button>
+
+</ul>
+
+{% endfor %}
+
+<a href="{% url 'AgregarCliente' %}">Agregar Cliente.</a>
+
+{% endblock %}
